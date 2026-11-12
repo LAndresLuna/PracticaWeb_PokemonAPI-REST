@@ -11,6 +11,8 @@ import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 import org.hibernate.validator.constraints.URL;
 
+import java.time.LocalDateTime;
+
 @Entity
 @Data
 @NoArgsConstructor
@@ -47,5 +49,7 @@ public class Pokemon {
     @Email(message = "El formato de correo debe ser válido")
     private String email;
 
+    @PastOrPresent(message = "La fecha de captura no puede ser en el futuro")
+    private LocalDateTime fechaCaptura;
 
 }
